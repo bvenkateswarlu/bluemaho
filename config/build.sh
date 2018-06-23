@@ -17,16 +17,16 @@ echo -e "\n chmod +x obexstress.py"
 chmod +x obexstress.py
 
 echo -e "\n[+] Building atshell.c by Bastian Ballmann (modified attest.c by Marcel Holtmann)"
-gcc -lbluetooth -lreadline sources/atshell.c -o atshell
+gcc sources/atshell.c -o atshell -lbluetooth -lreadline
 
 echo -e "\n[+] Building bccmd by Marcel Holtmann"
 cd sources/bccmd/
-gcc -lusb -lbluetooth csr.c csr_3wire.c csr_bcsp.c csr_h4.c csr_hci.c csr_usb.c ubcsp.c bccmd.c -o bccmd
+gcc  csr.c csr_3wire.c csr_bcsp.c csr_h4.c csr_hci.c csr_usb.c ubcsp.c bccmd.c -o bccmd -lusb -lbluetooth
 mv bccmd ../..
 cd ../..
 
 echo -e "\n[+] Building bdaddr.c by Marcel Holtmann"
-gcc -lbluetooth sources/bdaddr.c -o bdaddr
+gcc sources/bdaddr.c -o bdaddr -lbluetooth
 
 echo -e "\n[+] Building psm_scan and rfcomm_scan from bt_audit-0.1.1 by Collin R. Mulliner"
 cd sources/bt_audit-0.1.1/src/
@@ -56,13 +56,13 @@ cd ../..
 
 echo -e "\n[+] Building carwhisperer v0.2 by Martin Herfurt"
 cd sources/carwhisperer-0.2/
-gcc -lbluetooth carwhisperer.c -o carwhisperer
+gcc carwhisperer.c -o carwhisperer -lbluetooth
 mv carwhisperer ../..
 cd ../..
 
 echo -e "\n[+] Building L2CAP packetgenerator by Bastian Ballmann"
 cd sources/
-gcc -lbluetooth l2cap-packet.c -o l2cap-packet
+gcc l2cap-packet.c -o l2cap-packet -lbluetooth
 mv l2cap-packet ..
 cd ..
 
@@ -102,7 +102,7 @@ cd ../..
 
 echo -e "\n[+] Building BlueZ hcidump v1.29 DoS PoC by Pierre Betouin"
 cd sources/
-gcc -lbluetooth bluez_hcidump_v129_dos.c -o bluez_hcidump_v129_dos
+gcc  bluez_hcidump_v129_dos.c -o bluez_hcidump_v129_dos -lbluetooth
 mv bluez_hcidump_v129_dos ..
 cd ..
 
@@ -121,13 +121,13 @@ cd ../..
 
 echo -e "\n[+] Building Nokia N70 l2cap packet DoS PoC Pierre Betouin"
 cd sources/
-gcc -lbluetooth nokiaN70_l2cap_packet_dos.c -o nokiaN70_l2cap_packet_dos
+gcc nokiaN70_l2cap_packet_dos.c -o nokiaN70_l2cap_packet_dos -lbluetooth
 mv nokiaN70_l2cap_packet_dos ..
 cd ..
 
 echo -e "\n[+] Building Sony-Ericsson reset display PoC by Pierre Betouin"
 cd sources/
-gcc -lbluetooth sonyericsson_reset_display.c -o sonyericsson_reset_display
+gcc sonyericsson_reset_display.c -o sonyericsson_reset_display -lbluetooth
 mv sonyericsson_reset_display ..
 cd ..
 
